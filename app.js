@@ -12,8 +12,8 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("public"));
 mongoose.set('strictQuery', false);
-//store URI in .env then load it using dotenv
-mongoose.connect(`mongodb+srv://Om:${process.env.URI_PASSWORD}@cluster0.pj9cmmi.mongodb.net/todolistDB`);
+//Store Mongodb URI in .env as MONGODB_URI
+mongoose.connect(process.env.MONGODB_URI);
 
 const itemSchema = {
     name: String
